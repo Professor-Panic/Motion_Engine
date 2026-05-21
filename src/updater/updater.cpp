@@ -1,0 +1,23 @@
+#include "updater/updater.h"
+void Update(AnimData& anim,float t){
+    for(auto&circle:anim.circles){
+        auto [k0,k1] = FindKeyframeIndices(circle.keyframes, t);
+
+        float t0 = circle.keyframes[k0];
+        float t1 = circle.keyframes[k1];
+
+        float dt = t1 - t0;
+
+        float alpha = 0.0f;
+        if (dt != 0.0f)
+            alpha = (t - t0) / dt;
+
+        Vector2 pos = Vector2Lerp(circle.positions[k0], circle.positions[k1], alpha);
+        float scale=Lerp(circle.scales[k0],circle.scales[k1],alpha);
+        pos = ToScreenSpace(pos, Vector2{1200,800});
+        Color col = ColorLerp(circle.colors[k0], circle.colors[k1], alpha);
+
+        DrawCircleV(pos, 50*scale, col);
+
+    }
+}
