@@ -33,3 +33,8 @@ std::pair<int, int> FindKeyframeIndices(const std::vector<float>& keyframes, flo
     // Fallback (should never happen if data is valid)
     return {n - 1, n - 1};
 }
+Vector2 BezierInterpolation(Vector2 p0,Vector2 p1,Vector2 c,float t){
+    Vector2 p3=Vector2Lerp(p0,c,t);
+    Vector2 p4=Vector2Lerp(c,p1,t);
+    return Vector2Lerp(p3,p4,t);
+}

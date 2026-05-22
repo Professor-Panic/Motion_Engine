@@ -12,3 +12,13 @@ struct AnimData
     std::vector<Circle>circles;
     float duration;
 };
+struct Curves{
+    Vector2 p0;
+    Vector2 p1;
+    Vector2 c;
+    bool isCurve;
+    bool needsMidpoint;
+};
+struct Path{
+    std::vector<Curves>geometry;
+};

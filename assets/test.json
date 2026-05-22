@@ -1,5 +1,5 @@
 {
-    "Duration":5.0,
+    "Duration":50.0,
     "Objects":[
            {"type":"Circle",
             "id":"Circle_1",
