@@ -11,12 +11,10 @@
                 },
                 {"t":3.0,
                 "Position":[1.0,0],
-                "Scale":[1.0],
-                "Color":[0,255,0,255]
+                "Scale":[1.0]
                 },
                 {"t":5.0,
                 "Position":[1.0,1.0],
-                "Scale":[1.0],
                 "Color":[0,255,0,255]
                 }
                 ]  
@@ -36,27 +34,39 @@
                 },
                 {"t":3.0,
                 "Position":[1,0],
-                "Scale":[1.0],
                 "Color":[255,0,255,255]
                 }
                 ]  
             },
             {"type":"Circle",
-            "id":"Circle_2",
+            "id":"Circle_3",
             "Keyframes":[
                 {"t":0.0,
                 "Position":[-1,-1],
-                "Scale":[0.0],
+                "Scale":[1.0],
                 "Color":[255,255,255,255]
                 },
                 {"t":2.0,
                 "Position":[0,0],
-                "Scale":[1.0],
                 "Color":[0,255,255,255]
                 },
                 {"t":4.0,
                 "Position":[1,1],
                 "Scale":[0.5],
+                "Color":[255,0,0,255]
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"Hello World!",
+            "Keyframes":[
+                {"t":0.0,
+                "Position":[0,0],
+                "Scale":[1.0],
+                "Fontsize":0.10,
+                "Color":[255,255,255,255]
+                },
+                {"t":2.0,
                 "Color":[255,0,0,255]
                 }
                 ]  

@@ -50,3 +50,20 @@ void EngineDrawLineBezier(Vector2 p0,Vector2 p1,Vector2 c,int resolution,Color c
         prevPoint=nextPoint;
     }
 }
+void EngineDrawTextLines(WordPath paths,Color color){
+    Vector2 offset=Vector2Zero();
+        for(auto& path:paths.wordpaths){
+            for(auto&points:path.geometry){
+                Vector2 p=ToScreenSpace(points.p0+offset,raster_size);
+                Vector2 p1=ToScreenSpace(points.p1+offset,raster_size);
+                Vector2 c=ToScreenSpace(points.c+offset,raster_size);
+                if(points.isCurve){
+                    EngineDrawLineBezier(p,c,p1,10,color);
+                }
+                else{
+                    DrawLineV(p,p1,color);
+                }
+            }
+            offset+=path.offset;
+        }
+}

@@ -8,11 +8,6 @@ struct Circle{
     std::vector<Color> colors;
     std::vector<float>keyframes;
 };
-struct AnimData
-{
-    std::vector<Circle>circles;
-    float duration;
-};
 struct Curves{
     Vector2 p0;
     Vector2 p1;
@@ -26,4 +21,18 @@ struct Path{
 };
 struct WordPath{
     std::vector<Path>wordpaths;
+};
+struct Text{
+    WordPath textPath;
+    std::vector<Vector2> positions;
+    std::vector<float> scales;
+    std::vector<Color> colors;
+    std::vector<float>keyframes;
+    std::vector<float>fontsizes;
+};
+struct AnimData
+{
+    std::vector<Circle>circles;
+    std::vector<Text>texts;
+    float duration;
 };

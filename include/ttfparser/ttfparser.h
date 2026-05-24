@@ -1,17 +1,10 @@
-/*
-* ttf-parser
-*  A single header ttf parser
-*  Reads the minimum information needed to render antialiased glyph geometry as fast as possible
-*  Browser support using emscripten
-*
-*  A glyph is represented as a set of lines (p0, p1) and quadratic curves (p0, p1 with control point c)
-*/
 
 #pragma once
 
 #include <stdint.h>
 #include <map>
 #include <unordered_map>
+#include <cstring>
 #include <vector>
 #ifdef __EMSCRIPTEN__
 #include "emscripten.h"

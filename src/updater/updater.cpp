@@ -20,4 +20,23 @@ void Update(AnimData& anim,float t){
         DrawCircleV(pos, 50*scale, col);
 
     }
+    for(auto&text:anim.texts){
+        auto [k0,k1] = FindKeyframeIndices(text.keyframes, t);
+
+        float t0 = text.keyframes[k0];
+        float t1 = text.keyframes[k1];
+
+        float dt = t1 - t0;
+
+        float alpha = 0.0f;
+        if (dt != 0.0f)
+            alpha = (t - t0) / dt;
+
+        Vector2 pos = Vector2Lerp(text.positions[k0], text.positions[k1], alpha);
+        float scale=Lerp(text.scales[k0],text.scales[k1],alpha);
+        pos = ToScreenSpace(pos, raster_size);
+        Color col = ColorLerp(text.colors[k0], text.colors[k1], alpha);
+        EngineDrawTextLines(text.textPath,col);
+
+    }
 }

@@ -15,7 +15,7 @@ void ParsePath(Path& c_path,std::vector<TTFFontParser::Path>paths,float unitsPer
         }
     }
 }
-WordPath GetPathsForText(const char* text, TTFFontParser::FontData &font_data,float wordSpacing){
+WordPath GetPathsForText(const char* text, TTFFontParser::FontData &font_data,float fontSize){
     unsigned int length=TextLength(text);
     float advance=0;
     WordPath paths;
@@ -23,12 +23,12 @@ WordPath GetPathsForText(const char* text, TTFFontParser::FontData &font_data,fl
     std::string str(text);
     for(int i=0;i<length;i++){
         std::vector<TTFFontParser::Path>path=font_data.glyphs[str[i]].path_list;
-        advance=float(font_data.glyphs[str[i]].advance_width)/float(font_data.meta_data.unitsPerEm)*(0.10);
+        advance=float(font_data.glyphs[str[i]].advance_width)/float(font_data.meta_data.unitsPerEm)*(fontSize);
         if(str[i]==' '){
             advance=0.04;
         }
         Path p;
-        ParsePath(p,path,font_data.meta_data.unitsPerEm,0.10);
+        ParsePath(p,path,font_data.meta_data.unitsPerEm,fontSize);
         offset.x=advance;
         p.offset=offset;
         paths.wordpaths.push_back(p);
