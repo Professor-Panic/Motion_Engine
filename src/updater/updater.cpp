@@ -33,10 +33,10 @@ void Update(AnimData& anim,float t){
             alpha = (t - t0) / dt;
 
         Vector2 pos = Vector2Lerp(text.positions[k0], text.positions[k1], alpha);
-        float scale=Lerp(text.scales[k0],text.scales[k1],alpha);
+        float fontSize=Lerp(text.fontsizes[k0],text.fontsizes[k1],alpha);
         pos = ToScreenSpace(pos, raster_size);
         Color col = ColorLerp(text.colors[k0], text.colors[k1], alpha);
-        EngineDrawTextLines(text.textPath,col);
+        EngineDrawTextLines(text.textPath,fontSize,col);
 
     }
 }

@@ -39,7 +39,7 @@ void ParseCircles(nlohmann::json &animFile,AnimData& anim){
         }
     }
 }
-void ParseText(nlohmann::json &animFile,AnimData& anim,TTFFontParser::FontData &font_data,float fontSize){
+void ParseText(nlohmann::json &animFile,AnimData& anim,TTFFontParser::FontData &font_data){
     if(animFile.contains("Objects")){
         for(auto& obj:animFile["Objects"]){
             if(obj["type"]=="Text"){
@@ -50,7 +50,7 @@ void ParseText(nlohmann::json &animFile,AnimData& anim,TTFFontParser::FontData &
                 Color currentColor;
                 float currentScale;
                 float currentFontsize;
-                WordPath path=GetPathsForText(TextFormat(text_str.c_str()),font_data,fontSize);
+                WordPath path=GetPathsForText(TextFormat(text_str.c_str()),font_data,1.0);
                 for(int i=0;i<obj["Keyframes"].size();i++){
                     auto&Keyframes=obj["Keyframes"][i];
                     float t=Keyframes["t"];
@@ -73,6 +73,7 @@ void ParseText(nlohmann::json &animFile,AnimData& anim,TTFFontParser::FontData &
                     text.textPath=path;
                     text.positions.push_back(currentPosition);
                     text.scales.push_back(currentScale);
+                    text.fontsizes.push_back(currentFontsize);
                     text.colors.push_back(currentColor);
                     text.keyframes.push_back(t);
                 }
