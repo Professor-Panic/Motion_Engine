@@ -38,3 +38,15 @@ Vector2 BezierInterpolation(Vector2 p0,Vector2 p1,Vector2 c,float t){
     Vector2 p4=Vector2Lerp(c,p1,t);
     return Vector2Lerp(p3,p4,t);
 }
+void EngineDrawLineBezier(Vector2 p0,Vector2 p1,Vector2 c,int resolution,Color color){
+    Vector2 prevPoint=p0;
+    if(resolution<0){
+        std::cout<<"Resolution mut be greater than 0 \n";
+    }
+    for(int i=0;i<resolution;i++){
+        float t=float(i+1)/float(resolution);
+        Vector2 nextPoint=BezierInterpolation(p0,p1,c,t);
+        DrawLineV(prevPoint,nextPoint,color);
+        prevPoint=nextPoint;
+    }
+}

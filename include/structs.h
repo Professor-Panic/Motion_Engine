@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include <iostream>
 #include <vector>
 struct Circle{
     std::vector<Vector2>positions;
@@ -21,4 +22,8 @@ struct Curves{
 };
 struct Path{
     std::vector<Curves>geometry;
+    Vector2 offset;
+};
+struct WordPath{
+    std::vector<Path>wordpaths;
 };
