@@ -1,5 +1,6 @@
 #include "updater/updater.h"
 void Update(AnimData& anim,float t){
+    int counter=0;
     for(auto&circle:anim.circles){
         auto [k0,k1] = FindKeyframeIndices(circle.keyframes, t);
 
@@ -18,9 +19,11 @@ void Update(AnimData& anim,float t){
         Color col = ColorLerp(circle.colors[k0], circle.colors[k1], alpha);
 
         DrawCircleV(pos, 50*scale, col);
-
     }
     for(auto&text:anim.texts){
+        if(t<text.keyframes[0]){
+            continue;
+        }
         auto [k0,k1] = FindKeyframeIndices(text.keyframes, t);
 
         float t0 = text.keyframes[k0];
@@ -34,9 +37,7 @@ void Update(AnimData& anim,float t){
 
         Vector2 pos = Vector2Lerp(text.positions[k0], text.positions[k1], alpha);
         float fontSize=Lerp(text.fontsizes[k0],text.fontsizes[k1],alpha);
-        pos = ToScreenSpace(pos, raster_size);
         Color col = ColorLerp(text.colors[k0], text.colors[k1], alpha);
-        EngineDrawTextLines(text.textPath,fontSize,col);
-
+        EngineDrawTextLines(text.textPath,fontSize,pos,col);
     }
 }

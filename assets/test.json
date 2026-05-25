@@ -58,17 +58,208 @@
                 ]  
             },
             {"type":"Text",
-            "Text":"Hello World!",
+            "Text":"Hit me Baby one more time",
             "Keyframes":[
                 {"t":0.0,
-                "Position":[0,0],
+                "Position":[-1.0,0.8],
                 "Scale":[1.0],
-                "Fontsize":8.0,
+                "Fontsize":0.0,
                 "Color":[255,255,255,255]
+                },
+                {"t":1.0,
+                "Fontsize":8.0,
+                "Color":[255,0,0,255]
                 },
                 {"t":2.0,
                 "Fontsize":10.0,
                 "Color":[255,0,0,255]
+                },
+                {"t":3.0,
+                "Fontsize":0.0
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"My loneliness",
+            "Keyframes":[
+                {"t":2.0,
+                "Position":[-1.0,0.7],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":3.0,
+                "Fontsize":8.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":4.0,
+                "Fontsize":10.0,
+                "Color":[0,255,0,255]
+                },
+                {"t":5.0,
+                "Fontsize":0.0
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"is killing meee",
+            "Keyframes":[
+                {"t":4.0,
+                "Position":[-1.0,0.6],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":5.0,
+                "Fontsize":10.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":6.0,
+                "Fontsize":0.0,
+                "Color":[0,255,0,255]
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"And I",
+            "Keyframes":[
+                {"t":5.0,
+                "Position":[-1.0,0.4],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":6.0,
+                "Fontsize":8.0
+                },
+                {"t":7.0,
+                "Fontsize":10.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":8.0,
+                "Fontsize":0.0
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"I must confess",
+            "Keyframes":[
+                {"t":7.0,
+                "Position":[-1.0,0.2],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":8.0,
+                "Position":[-1.0,0.2],
+                "Scale":[1.0],
+                "Fontsize":8.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":9.0,
+                "Fontsize":10.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":10.0,
+                "Fontsize":0.0,
+                "Color":[0,255,0,255]
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"I still believe",
+            "Keyframes":[
+                {"t":9.0,
+                "Position":[-1.0,0],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":10.0,
+                "Fontsize":8.0
+                },
+                {"t":11.0,
+                "Fontsize":10.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":12.0,
+                "Fontsize":0.0,
+                "Color":[0,255,0,255]
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"still believe",
+            "Keyframes":[
+                {"t":11.0,
+                "Position":[-1.0,-0.2],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":12.0,
+                "Position":[-1.0,-0.2],
+                "Scale":[1.0],
+                "Fontsize":8.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":13.0,
+                "Fontsize":10.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":14.0,
+                "Fontsize":0.0,
+                "Color":[0,255,0,255]
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"When I'm not with you i lose my mind",
+            "Keyframes":[
+                {"t":13.0,
+                "Position":[-1.0,-0.4],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":14.0,
+                "Position":[-1.0,-0.4],
+                "Scale":[1.0],
+                "Fontsize":8.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":15.0,
+                "Fontsize":10.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":16.0,
+                "Fontsize":0.0,
+                "Color":[0,255,0,255]
+                }
+                ]  
+            },
+            {"type":"Text",
+            "Text":"Give me a sign",
+            "Keyframes":[
+                {"t":15.0,
+                "Position":[-1.0,-0.6],
+                "Scale":[1.0],
+                "Fontsize":0.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":16.0,
+                "Position":[-1.0,-0.6],
+                "Scale":[1.0],
+                "Fontsize":8.0,
+                "Color":[255,255,255,255]
+                },
+                {"t":17.0,
+                "Fontsize":10.0,
+                "Color":[255,0,0,255]
+                },
+                {"t":18.0,
+                "Fontsize":0.0,
+                "Color":[0,255,0,255]
                 }
                 ]  
             }

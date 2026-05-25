@@ -25,7 +25,7 @@ WordPath GetPathsForText(const char* text, TTFFontParser::FontData &font_data,fl
         std::vector<TTFFontParser::Path>path=font_data.glyphs[str[i]].path_list;
         advance=float(font_data.glyphs[str[i]].advance_width)/float(font_data.meta_data.unitsPerEm)*((fontSize)/100.0);
         if(str[i]==' '){
-            advance=0.04*((fontSize)/100.0);
+            advance=0.13*((fontSize)/100.0);
         }
         Path p;
         ParsePath(p,path,font_data.meta_data.unitsPerEm,fontSize);
