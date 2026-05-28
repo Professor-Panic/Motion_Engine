@@ -29,6 +29,7 @@ int main(){
         BeginDrawing();
         ClearBackground(BLACK);
         Update(anim,time);
+        DrawText(TextFormat("%.2f",time),20,20,20,WHITE);
         EndDrawing();
         if(time>anim.duration){
             break;

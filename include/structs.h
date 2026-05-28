@@ -2,12 +2,7 @@
 #include "raylib.h"
 #include <iostream>
 #include <vector>
-struct Circle{
-    std::vector<Vector2>positions;
-    std::vector<float> scales;
-    std::vector<Color> colors;
-    std::vector<float>keyframes;
-};
+
 struct Curves{
     Vector2 p0;
     Vector2 p1;
@@ -29,10 +24,4 @@ struct Text{
     std::vector<Color> colors;
     std::vector<float>keyframes;
     std::vector<float>fontsizes;
-};
-struct AnimData
-{
-    std::vector<Circle>circles;
-    std::vector<Text>texts;
-    float duration;
 };

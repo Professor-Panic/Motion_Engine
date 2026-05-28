@@ -1,0 +1,16 @@
+{
+    "Duration":50.0,
+    "Objects":[
+            {"type":"Text",
+            "Text":"Hit me Baby one more time",
+            "Keyframes":[
+                {"t":0.0,
+                "Position":[-1.0,0.8],
+                "Scale":[1.0],
+                "Fontsize":10.0,
+                "Color":[255,255,255,255]
+                }
+                ]  
+            }
+        ]
+}

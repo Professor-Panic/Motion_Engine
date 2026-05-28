@@ -1,5 +1,6 @@
 #include "Font_Parser/font_parser.h"
 void ParsePath(Path& c_path,std::vector<TTFFontParser::Path>paths,float unitsPerEm,float fontSize){
+    std::vector<Vector2>points;
     for(auto& path:paths){
         for(auto &curve:path.geometry){
             Curves c_curve;
@@ -11,7 +12,8 @@ void ParsePath(Path& c_path,std::vector<TTFFontParser::Path>paths,float unitsPer
             c_curve.p1=Vector2Scale(c_curve.p1,(1/unitsPerEm)*((fontSize)/100.0));
             c_curve.isCurve=curve.is_curve;
             c_path.geometry.push_back(c_curve);
-
+            points.push_back(c_curve.p1);
+            points.push_back(c_curve.p0);
         }
     }
 }

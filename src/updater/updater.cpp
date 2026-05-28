@@ -6,19 +6,27 @@ void Update(AnimData& anim,float t){
 
         float t0 = circle.keyframes[k0];
         float t1 = circle.keyframes[k1];
-
-        float dt = t1 - t0;
-
-        float alpha = 0.0f;
-        if (dt != 0.0f)
-            alpha = (t - t0) / dt;
-
-        Vector2 pos = Vector2Lerp(circle.positions[k0], circle.positions[k1], alpha);
-        float scale=Lerp(circle.scales[k0],circle.scales[k1],alpha);
-        pos = ToScreenSpace(pos, Vector2{1200,800});
-        Color col = ColorLerp(circle.colors[k0], circle.colors[k1], alpha);
-
-        DrawCircleV(pos, 50*scale, col);
+        float alpha = InverseLerp(t0,t1,t);
+        Vector2 pos=Vector2Zero();
+        if(circle.transforms[k0].trans_position.interPolation==0){
+            pos=Vector2Lerp(circle.transforms[k0].trans_position.position,circle.transforms[k1].trans_position.position,alpha);
+        }
+        if(circle.transforms[k0].trans_position.interPolation==1){
+            pos=Vector2Step(alpha,0.3,circle.transforms[k0].trans_position.position,circle.transforms[k1].trans_position.position);
+        }
+        Vector2 scale=Vector2Zero();
+        if(circle.transforms[k0].trans_scale.interPolation==0){
+            scale=Vector2Lerp(circle.transforms[k0].trans_scale.scale,circle.transforms[k1].trans_scale.scale,alpha);
+        }
+        pos = ToScreenSpace(pos,raster_size);
+        Color col ={0,0,0,0};
+        if(circle.transforms[k0].trans_color.interPolation==0){
+         col=ColorLerp(circle.transforms[k0].trans_color.color, circle.transforms[k1].trans_color.color, alpha);
+        }
+        if(circle.transforms[k0].trans_color.interPolation==1){
+         col=ColorStep(alpha,0.5,circle.transforms[k0].trans_color.color, circle.transforms[k1].trans_color.color);
+        }
+        DrawCircleV(pos, 50*scale.x, col);
     }
     for(auto&text:anim.texts){
         if(t<text.keyframes[0]){
@@ -29,12 +37,7 @@ void Update(AnimData& anim,float t){
         float t0 = text.keyframes[k0];
         float t1 = text.keyframes[k1];
 
-        float dt = t1 - t0;
-
-        float alpha = 0.0f;
-        if (dt != 0.0f)
-            alpha = (t - t0) / dt;
-
+        float alpha =InverseLerp(t0,t1,t);
         Vector2 pos = Vector2Lerp(text.positions[k0], text.positions[k1], alpha);
         float fontSize=Lerp(text.fontsizes[k0],text.fontsizes[k1],alpha);
         Color col = ColorLerp(text.colors[k0], text.colors[k1], alpha);
