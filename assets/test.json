@@ -5,18 +5,23 @@
             "id":"Circle_1",
             "Keyframes":[
                 {"t":0.0,
-                "Position":{"Values":[0,0]},
-                "Scale":{"Values":[0.0]},
-                "Color":{"Values":[0,255,0,255]}
-                },
-                {"t":3.0,
-                "Position":{"Values":[1.0,0]},
+                "Position":{"Values":[-0.5,0],"Interpolation":2},
                 "Scale":{"Values":[1.0]},
-                "Color":{"Interpolation":1}
+                "Color":{"Values":[255,175,135,255],"Interpolation":2}
                 },
-                {"t":5.0,
-                "Position":{"Values":[1.0,1.0]},
-                "Color":{"Values":[255,0,0,255],"Interpolation":1}
+                {"t":1.0,
+                "Position":{"Values":[0.5,0],"Interpolation":2},
+                "Scale":{"Values":[1.0]},
+                "Color":{"Values":[244,50,11,255],"Interpolation":2}
+                },
+                {"t":1.2,
+                "Position":{"Values":[0.5,0],"Interpolation":2},
+                "Scale":{"Values":[1.0]},
+                "Color":{"Values":[244,50,11,255],"Interpolation":2}
+                },
+                {"t":2.5,
+                "Position":{"Values":[-0.5,0.0]},
+                "Color":{"Values":[255,175,135,255],"Interpolation":1}
                 }
                 ]  
             }

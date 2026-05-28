@@ -8,14 +8,23 @@ void Update(AnimData& anim,float t){
         float t1 = circle.keyframes[k1];
         float alpha = InverseLerp(t0,t1,t);
         Vector2 pos=Vector2Zero();
+        Vector2 scale=Vector2Zero();
         if(circle.transforms[k0].trans_position.interPolation==0){
             pos=Vector2Lerp(circle.transforms[k0].trans_position.position,circle.transforms[k1].trans_position.position,alpha);
         }
         if(circle.transforms[k0].trans_position.interPolation==1){
-            pos=Vector2Step(alpha,0.3,circle.transforms[k0].trans_position.position,circle.transforms[k1].trans_position.position);
+            alpha=Step(alpha,0.3);
+            pos=Vector2Lerp(circle.transforms[k0].trans_position.position,circle.transforms[k1].trans_position.position,alpha);
         }
-        Vector2 scale=Vector2Zero();
+        if(circle.transforms[k0].trans_position.interPolation==2){
+            alpha=EaseInOutBack(alpha);
+            pos=Vector2Lerp(circle.transforms[k0].trans_position.position,circle.transforms[k1].trans_position.position,alpha);
+        }
         if(circle.transforms[k0].trans_scale.interPolation==0){
+            scale=Vector2Lerp(circle.transforms[k0].trans_scale.scale,circle.transforms[k1].trans_scale.scale,alpha);
+        }
+        if(circle.transforms[k0].trans_scale.interPolation==1){
+            alpha=Step(alpha,0.3);
             scale=Vector2Lerp(circle.transforms[k0].trans_scale.scale,circle.transforms[k1].trans_scale.scale,alpha);
         }
         pos = ToScreenSpace(pos,raster_size);
@@ -24,7 +33,12 @@ void Update(AnimData& anim,float t){
          col=ColorLerp(circle.transforms[k0].trans_color.color, circle.transforms[k1].trans_color.color, alpha);
         }
         if(circle.transforms[k0].trans_color.interPolation==1){
-         col=ColorStep(alpha,0.5,circle.transforms[k0].trans_color.color, circle.transforms[k1].trans_color.color);
+            alpha=Step(alpha,0.5);
+            col=ColorLerp(circle.transforms[k0].trans_color.color, circle.transforms[k1].trans_color.color,alpha);
+        }
+        if(circle.transforms[k0].trans_color.interPolation==2){
+            alpha=EaseInOutBack(alpha);
+            col=ColorLerp(circle.transforms[k0].trans_color.color, circle.transforms[k1].trans_color.color,alpha);
         }
         DrawCircleV(pos, 50*scale.x, col);
     }
