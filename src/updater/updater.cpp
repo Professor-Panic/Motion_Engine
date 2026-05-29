@@ -52,9 +52,38 @@ void Update(AnimData& anim,float t){
         float t1 = text.keyframes[k1];
 
         float alpha =InverseLerp(t0,t1,t);
-        Vector2 pos = Vector2Lerp(text.positions[k0], text.positions[k1], alpha);
-        float fontSize=Lerp(text.fontsizes[k0],text.fontsizes[k1],alpha);
-        Color col = ColorLerp(text.colors[k0], text.colors[k1], alpha);
-        EngineDrawTextLines(text.textPath,fontSize,pos,col);
+        Vector2 pos=Vector2Zero();
+        Vector2 scale=Vector2Zero();
+        if(text.transforms[k0].trans_position.interPolation==0){
+            pos=Vector2Lerp(text.transforms[k0].trans_position.position,text.transforms[k1].trans_position.position,alpha);
+        }
+        if(text.transforms[k0].trans_position.interPolation==1){
+            alpha=Step(alpha,0.3);
+            pos=Vector2Lerp(text.transforms[k0].trans_position.position,text.transforms[k1].trans_position.position,alpha);
+        }
+        if(text.transforms[k0].trans_position.interPolation==2){
+            alpha=EaseInOutBack(alpha);
+            pos=Vector2Lerp(text.transforms[k0].trans_position.position,text.transforms[k1].trans_position.position,alpha);
+        }
+        if(text.transforms[k0].trans_scale.interPolation==0){
+            scale=Vector2Lerp(text.transforms[k0].trans_scale.scale,text.transforms[k1].trans_scale.scale,alpha);
+        }
+        if(text.transforms[k0].trans_scale.interPolation==1){
+            alpha=Step(alpha,0.3);
+            scale=Vector2Lerp(text.transforms[k0].trans_scale.scale,text.transforms[k1].trans_scale.scale,alpha);
+        }
+        Color col ={0,0,0,0};
+        if(text.transforms[k0].trans_color.interPolation==0){
+         col=ColorLerp(text.transforms[k0].trans_color.color, text.transforms[k1].trans_color.color, alpha);
+        }
+        if(text.transforms[k0].trans_color.interPolation==1){
+            alpha=Step(alpha,0.5);
+            col=ColorLerp(text.transforms[k0].trans_color.color, text.transforms[k1].trans_color.color,alpha);
+        }
+        if(text.transforms[k0].trans_color.interPolation==2){
+            alpha=EaseInOutBack(alpha);
+            col=ColorLerp(text.transforms[k0].trans_color.color, text.transforms[k1].trans_color.color,alpha);
+        }
+        EngineDrawTextLines(text.textPath,scale.x,pos,col);
     }
 }

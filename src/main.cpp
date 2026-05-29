@@ -21,7 +21,7 @@ int main(){
     ParseCircles(animFile,anim);
     ParseText(animFile,anim,font_data);
     SetConfigFlags(FLAG_MSAA_4X_HINT);
-    InitWindow(1200,800,"RayCanvas");
+    InitWindow(raster_size.x,raster_size.y,"RayCanvas");
     SetTargetFPS(60);
     float time=0.0;
     while (!WindowShouldClose()){
